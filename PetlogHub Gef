@@ -1,0 +1,335 @@
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local Frame = Instance.new("Frame")
+Frame.Size = UDim2.new(0, 400, 0, 300)
+Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+Frame.BorderSizePixel = 0
+Frame.Active = true
+Frame.Draggable = true
+Frame.Parent = ScreenGui
+
+local FrameCorner = Instance.new("UICorner")
+FrameCorner.CornerRadius = UDim.new(0, 10)
+FrameCorner.Parent = Frame
+
+local Close = Instance.new("TextButton")
+Close.Size = UDim2.new(0, 40, 0, 40)
+Close.Position = UDim2.new(1, -40, 0, 0)
+Close.BackgroundTransparency = 1
+Close.Text = "×"
+Close.TextScaled = true
+Close.TextColor3 = Color3.fromRGB(150, 150, 150)
+Close.Parent = Frame
+Close.MouseButton1Click:Connect(function()
+   ScreenGui:Destroy()
+end)
+
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(1, 0, 0, 30)
+Title.Position = UDim2.new(0, 0, 0.05, 0)
+Title.Text = "Petlog Hub Key System 🗝️"
+Title.TextSize = 18
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1
+Title.Parent = Frame
+
+local Instructions = Instance.new("TextLabel")
+Instructions.Size = UDim2.new(1, 0, 0, 30)
+Instructions.Position = UDim2.new(0, 0, 0.2, 0)
+Instructions.Text = "Enter The Key To load the Script"
+Instructions.TextSize = 13
+Instructions.TextColor3 = Color3.fromRGB(150, 150, 150)
+Instructions.BackgroundTransparency = 1
+Instructions.Parent = Frame
+
+local TextBox = Instance.new("TextBox")
+TextBox.Size = UDim2.new(0.8, 0, 0.2, 0)
+TextBox.Position = UDim2.new(0.1, 0, 0.4, 0)
+TextBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+TextBox.PlaceholderText = "Enter The Key Here"
+TextBox.Text = ""
+TextBox.TextSize = 18
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.Parent = Frame
+
+local TextBoxCorner = Instance.new("UICorner")
+TextBoxCorner.CornerRadius = UDim.new(0, 5)
+TextBoxCorner.Parent = TextBox
+
+local GetKey = Instance.new("TextButton")
+GetKey.Size = UDim2.new(0.35, 0, 0.15, 0)
+GetKey.Position = UDim2.new(0.1, 0, 0.7, 0)
+GetKey.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+GetKey.Text = "Get Key"
+GetKey.TextSize = 18
+GetKey.TextColor3 = Color3.fromRGB(150, 150, 150)
+GetKey.Parent = Frame
+
+local GetKeyCorner = Instance.new("UICorner")
+GetKeyCorner.CornerRadius = UDim.new(0, 5)
+GetKeyCorner.Parent = GetKey
+
+local CheckKey = Instance.new("TextButton")
+CheckKey.Size = UDim2.new(0.35, 0, 0.15, 0)
+CheckKey.Position = UDim2.new(0.55, 0, 0.7, 0)
+CheckKey.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+CheckKey.Text = "Check Key"
+CheckKey.TextSize = 18
+CheckKey.TextColor3 = Color3.fromRGB(150, 150, 150)
+CheckKey.Parent = Frame
+
+local CheckKeyCorner = Instance.new("UICorner")
+CheckKeyCorner.CornerRadius = UDim.new(0, 5)
+CheckKeyCorner.Parent = CheckKey
+
+GetKey.MouseButton1Click:Connect(function()
+   setclipboard("THEAMZINGPETLOGMAN")
+end)
+
+local function validateKey(key)
+    return key == "THEAMZINGPETLOGMAN" -- Replace this with your key
+end
+
+CheckKey.MouseButton1Click:Connect(function()
+    local enteredKey = TextBox.Text
+    if validateKey(enteredKey) then
+        TextBox.PlaceholderText = "Correct Key!"
+        TextBox.Text = ""
+        wait(1)
+        ScreenGui:Destroy()
+
+-- Put Your Script Here
+-- ScreenGui object
+local gui = Instance.new("ScreenGui")
+gui.Name = "CustomLoader"
+gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Frame
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 300, 0, 180)
+frame.Position = UDim2.new(0.5, -150, 0.9, -280)
+frame.BackgroundColor3 = Color3.new(0, 0, 0)
+frame.Parent = gui
+
+-- UICorner of the frame
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 10)
+corner.Parent = frame
+
+-- Title 
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(0.99, 0, 0, 60)
+Title.Position = UDim2.new(0.03, 0, 0.10, 0)
+Title.BackgroundColor3 = Color3.new(0, 0, 0)
+Title.BackgroundTransparency = 1
+Title.TextColor3 = Color3.new(1, 1, 1)
+Title.TextSize = 25
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "Wait to load The Petlog Hub" -- Change to your script name
+Title.Parent = frame
+
+-- Loading bar frame
+local loadingBarFrame = Instance.new("Frame")
+loadingBarFrame.Size = UDim2.new(0, 0, 0.2, 0)
+loadingBarFrame.Position = UDim2.new(0.02, 0, 0.7, 0)
+loadingBarFrame.BackgroundColor3 = Color3.new(0, 1, 0) -- Green
+loadingBarFrame.Parent = frame
+
+-- UICorner of the loading bar frame
+local corner_2 = Instance.new("UICorner")
+corner_2.CornerRadius = UDim.new(0, 6)
+corner_2.Parent = loadingBarFrame
+
+-- Loading text
+local loadingText = Instance.new("TextLabel")
+loadingText.Size = UDim2.new(0.95, 0, 0, 30)
+loadingText.Position = UDim2.new(0.03, 0, 0.7, 0)
+loadingText.BackgroundColor3 = Color3.new(0, 0, 0)
+loadingText.BackgroundTransparency = 1
+loadingText.TextColor3 = Color3.new(1, 1, 1)
+loadingText.TextSize = 18
+loadingText.Font = Enum.Font.SourceSansBold
+loadingText.Text = "Loading..."
+loadingText.Parent = frame
+
+-- Function to animate the loading bar
+function animateLoadingBar()
+    local progress = 0
+
+    while progress < 100 do
+        progress = progress + 1
+        updateProgress(progress)
+        wait(0.05) -- Adjust the animation speed as needed
+    end
+
+    loadingText.Text = "Successfully Loaded"
+    wait(0.3)
+    gui:Destroy()
+
+    -- Load Kavo UI Library
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ZeianRussell/Kavo-UI-Library/main/Movable.source.lua"))()
+local Window = Library.CreateLib("Petlog Hub Script for Gef", "DarkTheme")
+
+-- Create Sections Properly
+local Tab1 = Window:NewTab("Health")
+local Tab2 = Window:NewTab("Items")
+local Tab3 = Window:NewTab("Gun")
+local Tab4 = Window:NewTab("Visual")
+local Tab5 = Window:NewTab("Credits")
+
+-- Health Tab Section Initialization
+local HealthSection = Tab1:NewSection("Health Section")
+HealthSection:NewButton("Chocolate", "Click this to Teleport", function()
+    local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rootPart.CFrame = game:GetService("Workspace").Pickups.Food.CFrame
+end)
+
+HealthSection:NewButton("Soda", "Click this to Teleport", function()
+    local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rootPart.CFrame = game:GetService("Workspace").Pickups.Soda.CFrame
+end)
+
+HealthSection:NewButton("Medkit", "Click this to Teleport", function()
+    local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rootPart.CFrame = game:GetService("Workspace").Pickups.Medkit.CFrame
+end)
+
+HealthSection:NewButton("Money", "Click this to Teleport", function()
+    local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rootPart.CFrame = game:GetService("Workspace").Pickups.Money.CFrame
+end)
+
+-- Items Tab Section Initialization
+local ItemsSection = Tab2:NewSection("Items Section")
+ItemsSection:NewButton("Hammer", "Click this to Teleport", function()
+    local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rootPart.CFrame = game:GetService("Workspace").Pickups.Hammer.CFrame
+end)
+
+ItemsSection:NewButton("Crowbar", "Click this to Teleport", function()
+    local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rootPart.CFrame = game:GetService("Workspace").Pickups.Crowbar.CFrame
+end)
+
+ItemsSection:NewButton("Baseball Bat", "Click this to Teleport", function()
+    local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rootPart.CFrame = game:GetService("Workspace").Pickups.Bat.CFrame
+end)
+
+ItemsSection:NewButton("Lantern", "Click this to Teleport", function()
+    local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rootPart.CFrame = game:GetService("Workspace").Pickups.Lantern.CFrame
+end)
+
+ItemsSection:NewButton("GPS", "Click this to Teleport", function()
+    local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rootPart.CFrame = game:GetService("Workspace").Pickups.Gps.CFrame
+end)
+
+-- Guns Tab Section Initialization
+local GunsSection = Tab3:NewSection("Guns Section")
+GunsSection:NewButton("Shotgun", "Click this to Teleport", function()
+    local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rootPart.CFrame = game:GetService("Workspace").Pickups.Shotgun.CFrame
+end)
+
+GunsSection:NewButton("Shotgun Ammo", "Click this to Teleport", function()
+    local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rootPart.CFrame = game:GetService("Workspace").Pickups.Shells.CFrame
+end)
+
+GunsSection:NewButton("Handgun", "Click this to Teleport", function()
+    local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rootPart.CFrame = game:GetService("Workspace").Pickups.Handgun.CFrame
+end)
+
+GunsSection:NewButton("Handgun Bullet", "Click this to Teleport", function()
+    local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rootPart.CFrame = game:GetService("Workspace").Pickups.Bullets.CFrame
+end)
+
+
+-- Visual Tab Section Initialization
+local VisualSection = Tab4:NewSection("Visual Section")
+
+VisualSection:NewButton("Day", "Click this to Set Day", function()
+    -- Set the time to day
+    game.Lighting.ClockTime = 14 -- 14 corresponds to 2 PM
+    print("Set Day")
+end)
+
+VisualSection:NewButton("Night", "Click this to Set Night", function()
+    -- Set the time to night
+    game.Lighting.ClockTime = 0 -- 0 corresponds to midnight
+    print("Set Night")
+end)
+
+-- Credits Tab Section Initialization
+local CreditsSection = Tab5:NewSection("Credits")
+CreditsSection:NewLabel("Credits to Key system Script:D")
+CreditsSection:NewLabel("Credits to Loading Script:D")
+CreditsSection:NewLabel("Credits to GUI Toggle Button Script:D")
+local CreditsSection = Tab5:NewSection("My YouTube Channel")
+CreditsSection:NewButton("YouTube Channel Link", "Click this to Copy YouTube channel link", function()
+setclipboard("https://youtube.com/@john_paquitoscriptshowcaser?si=-tBXbIplTfRj7ZRI")  -- Copies the link to the clipboard
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Link Copied!";
+        Text = "YouTube Channel link copied to clipboard.";
+        Duration = 5;
+    })
+end)
+
+-- Toggle UI Button (Repositioned)
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "ScreenGui"
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+
+local Toggle = Instance.new("TextButton")
+Toggle.Name = "Toggle"
+Toggle.Parent = ScreenGui
+Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Toggle.Position = UDim2.new(0.05, 0, 0.1, 0)  -- Repositioned to make sure it's visible on screen
+Toggle.Size = UDim2.new(0, 120, 0, 40)  -- Increased size to ensure it is clickable
+Toggle.Font = Enum.Font.SourceSans
+Toggle.Text = "Close"
+Toggle.TextColor3 = Color3.fromRGB(248, 248, 248)
+Toggle.TextSize = 28.000
+Toggle.Draggable = true
+
+-- Toggle the UI when the button is clicked
+Toggle.MouseButton1Click:Connect(function()
+    if Toggle.Text == "Close" then
+        Toggle.Text = "Open"
+    else
+        Toggle.Text = "Close"
+    end
+    Library:ToggleUI()
+end)
+
+-- UI Corner for the Toggle Button
+local Corner = Instance.new("UICorner")
+Corner.Name = "Corner"
+Corner.Parent = Toggle
+end
+
+-- Function to update the loading progress
+function updateProgress(progress)
+    loadingBarFrame.Size = UDim2.new(progress / 105, 0, 0.2, 0)
+    loadingText.Text = "Loading: " .. progress .. "%"
+end
+
+-- Start the loading animation
+spawn(animateLoadingBar)
+
+    else
+        TextBox.PlaceholderText = "Invalid key. Try again."
+        TextBox.Text = ""
+        wait(1)
+        TextBox.PlaceholderText = "Enter The Key Here"
+        TextBox.Text = ""
+    end
+end)
